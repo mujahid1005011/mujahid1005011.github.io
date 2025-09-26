@@ -21,12 +21,10 @@
 title: M. Mojahidul Islam's Personal Website
 email: mujahid.buet@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  I’m a researcher and engineer working at the intersection of machine learning and cybersecurity. My work focuses on robust ML, adversarial testing, and practical applications of LLMs and computer vision.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mujahid1005011.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: mujahid.buet@gmail.com
+twitter_username: Mujahid1005011
 github_username:  mujahid1005011
 
 # Build settings
