@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Mojahidul Islam — AI Engineer &amp; Researcher</title>
+<meta name="description" content="Mohammad Mojahidul Islam — AI/ML engineer and civil servant from Dhaka, Bangladesh, seeking MS/PhD research opportunities in machine learning and cybersecurity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10132a;
+    --ink-2:#171b3d;
+    --ink-3:#1e2350;
+    --paper:#f1ebda;
+    --paper-2:#e7dfc7;
+    --ink-text:#211f16;
+    --paper-text:#ece6d6;
+    --muted:#9aa0c0;
+    --amber:#d98e3f;
+    --amber-dim:#a9702f;
+    --teal:#4fbfa8;
+    --rule:rgba(236,230,214,0.14);
+    --rule-paper:rgba(33,31,22,0.16);
+    --maxw:1080px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper-text);
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    color:inherit;
+  }
+  a{color:inherit;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  section{padding:96px 0;}
+  img{max-width:100%; display:block;}
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  ::selection{background:var(--amber); color:var(--ink);}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(16,19,42,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; letter-spacing:0.06em;
+    color:var(--paper-text);
+    text-decoration:none;
+    display:flex; align-items:center; gap:8px;
+  }
+  .nav-mark .dot{width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 8px var(--teal); flex:none;}
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; text-decoration:none; color:var(--muted);
+    letter-spacing:0.04em; text-transform:uppercase;
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{color:var(--amber);}
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:168px 0 96px;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(79,191,168,0.14), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 0%, rgba(217,142,63,0.10), transparent 60%);
+  }
+  .dossier{
+    background:var(--paper);
+    color:var(--ink-text);
+    border-radius:6px;
+    padding:52px 56px 48px;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,0.55), 0 2px 0 rgba(255,255,255,0.4) inset;
+    transform:rotate(-0.6deg);
+    position:relative;
+  }
+  .dossier::before{
+    content:"";
+    position:absolute; inset:14px;
+    border:1px solid var(--rule-paper);
+    border-radius:3px;
+    pointer-events:none;
+  }
+  .stamp{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--amber-dim);
+    border:1px solid var(--amber-dim);
+    padding:6px 12px;
+    border-radius:3px;
+    transform:rotate(-1.5deg);
+    margin-bottom:28px;
+  }
+  .hero h1{
+    font-size:clamp(32px, 4.4vw, 54px);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    max-width:15ch;
+    margin-bottom:22px;
+  }
+  .hero .sub{
+    font-size:17px;
+    max-width:56ch;
+    color:#3a3628;
+    margin-bottom:30px;
+  }
+  .hero .sub strong{color:var(--ink-text);}
+
+  .status-line{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    background:var(--ink);
+    color:var(--teal);
+    padding:10px 16px;
+    border-radius:4px;
+    margin-bottom:34px;
+  }
+  .status-line .cursor{
+    display:inline-block; width:8px; height:15px; background:var(--teal);
+    animation:blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{opacity:0;} }
+
+  .cta-row{display:flex; flex-wrap:wrap; gap:14px;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; letter-spacing:0.03em;
+    text-decoration:none;
+    padding:13px 22px;
+    border-radius:4px;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--ink-text); color:var(--paper);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 20px -6px rgba(0,0,0,0.4);}
+  .btn-ghost{border:1px solid var(--rule-paper); color:var(--ink-text);}
+  .btn-ghost:hover{border-color:var(--ink-text); transform:translateY(-2px);}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec-head{margin-bottom:44px; max-width:60ch;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--teal);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"§"; color:var(--amber);}
+  .sec-head h2{font-size:clamp(24px,3vw,34px); color:var(--paper-text);}
+  .sec-head p{color:var(--muted); margin-top:12px; font-size:15px;}
+
+  /* ---------- RESEARCH ---------- */
+  .research-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .research-card{
+    background:var(--ink-2);
+    padding:32px 28px;
+  }
+  .research-card .idx{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color:var(--amber);
+    margin-bottom:16px;
+  }
+  .research-card h3{font-size:19px; color:var(--paper-text); margin-bottom:10px;}
+  .research-card p{color:var(--muted); font-size:14.5px; margin:0;}
+
+  /* ---------- EXPERIENCE (log) ---------- */
+  .log{position:relative; padding-left:28px; border-left:1px solid var(--rule);}
+  .log-entry{position:relative; padding-bottom:44px;}
+  .log-entry:last-child{padding-bottom:0;}
+  .log-entry::before{
+    content:"";
+    position:absolute; left:-33px; top:6px;
+    width:9px; height:9px; border-radius:50%;
+    background:var(--ink); border:2px solid var(--teal);
+  }
+  .log-entry .ts{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; color:var(--amber);
+    letter-spacing:0.03em;
+    margin-bottom:8px;
+    display:block;
+  }
+  .log-entry h3{font-size:19px; color:var(--paper-text); margin-bottom:3px; font-weight:600;}
+  .log-entry .org{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; color:var(--muted); margin-bottom:12px; display:block;
+  }
+  .log-entry .org a{color:var(--muted); text-decoration:underline; text-decoration-color:var(--rule);}
+  .log-entry p{color:#c7cae2; font-size:15px; max-width:62ch; margin:0 0 14px;}
+  .tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    padding:4px 10px;
+    border-radius:20px;
+    border:1px solid var(--rule);
+    color:var(--muted);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .spec-sheet{
+    background:var(--paper);
+    color:var(--ink-text);
+    border-radius:6px;
+    padding:8px 0;
+  }
+  .spec-row{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:24px;
+    padding:20px 32px;
+    border-bottom:1px solid var(--rule-paper);
+    align-items:baseline;
+  }
+  .spec-row:last-child{border-bottom:none;}
+  .spec-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--amber-dim);
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    background:var(--paper-2);
+    padding:5px 11px;
+    border-radius:3px;
+    color:var(--ink-text);
+  }
+
+  .coursework{margin-top:28px; color:var(--muted); font-size:14.5px;}
+  .coursework span{color:var(--paper-text);}
+
+  /* ---------- EDUCATION / FREELANCE / COMMUNITY ---------- */
+  .two-col{display:grid; grid-template-columns:1.1fr 0.9fr; gap:24px;}
+  .card{
+    background:var(--ink-2);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:32px 30px;
+  }
+  .card h3{color:var(--paper-text); font-size:19px; margin-bottom:6px;}
+  .card .meta{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    color:var(--amber); margin-bottom:14px; display:block;
+  }
+  .card p{color:#c7cae2; font-size:14.5px; margin:0;}
+  .edu-block{margin-bottom:22px;}
+  .edu-block:last-child{margin-bottom:0;}
+  .community-list{margin:0; padding-left:18px; color:#c7cae2; font-size:14.5px;}
+  .community-list li{margin-bottom:8px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:linear-gradient(180deg, var(--ink-3), var(--ink));
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+  }
+  .contact .wrap{text-align:center;}
+  .contact h2{font-size:clamp(28px,4vw,44px); max-width:18ch; margin:0 auto 18px;}
+  .contact p.lead{color:var(--muted); max-width:52ch; margin:0 auto 36px; font-size:16px;}
+  .contact-links{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:14px;
+    margin-bottom:8px;
+  }
+
+  footer{
+    padding:36px 0 50px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+    .status-line .cursor{animation:none;}
+    .btn:hover, .btn-ghost:hover{transform:none;}
+  }
+
+  @media (max-width: 860px){
+    .research-grid{grid-template-columns:1fr;}
+    .two-col{grid-template-columns:1fr;}
+    .spec-row{grid-template-columns:1fr; gap:10px;}
+  }
+  @media (max-width: 640px){
+    section{padding:64px 0;}
+    .hero{padding:140px 0 64px;}
+    .dossier{padding:36px 24px 32px; transform:none;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark"><span class="dot"></span>M.M. ISLAM</a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="dossier reveal in">
+        <span class="stamp">File No. 2026 · Dhaka, BD</span>
+        <h1>Ten years building systems that serve a nation. Now building the models that come next.</h1>
+        <p class="sub"><strong>Mohammad Mojahidul Islam</strong> — AI/ML engineer and civil servant from Dhaka, Bangladesh. I've shipped software for half a million prepaid energy meters and run public administration for a sub-district government. I'm now seeking MS/PhD research opportunities in machine learning and cybersecurity.</p>
+        <div class="status-line mono">STATUS: open to MS/PhD funding &amp; research collaboration <span class="cursor" aria-hidden="true"></span></div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:mujahid.buet@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/1005011mmi/" target="_blank" rel="noopener">LinkedIn profile</a>
+          <a class="btn btn-ghost" href="mohammad-mojahidul-islam-cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH INTERESTS -->
+  <section id="research">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Research Interests</div>
+        <h2>Where infrastructure meets intelligence</h2>
+        <p>A decade spent running large-scale operational systems has shaped what I want to study: models that hold up in production, and the security questions that come with deploying them at national scale.</p>
+      </div>
+      <div class="research-grid reveal">
+        <div class="research-card">
+          <div class="idx">01 / AI</div>
+          <h3>Applied AI systems</h3>
+          <p>Designing AI that has to survive contact with real infrastructure — legacy stacks, patchy connectivity, and non-negotiable uptime.</p>
+        </div>
+        <div class="research-card">
+          <div class="idx">02 / ML &amp; DL</div>
+          <h3>LLMs &amp; computer vision</h3>
+          <p>Hands-on with PyTorch and Hugging Face, drawn to large language models and computer vision as tools for real-world decision support.</p>
+        </div>
+        <div class="research-card">
+          <div class="idx">03 / Security</div>
+          <h3>Cybersecurity at scale</h3>
+          <p>Having secured energy-metering networks running on TCP/IP and GSM, I'm interested in how ML systems get attacked — and defended.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Experience Log</div>
+        <h2>Career, in reverse chronological order</h2>
+      </div>
+
+      <div class="log reveal">
+
+        <div class="log-entry">
+          <span class="ts mono">DEC 2022 — PRESENT</span>
+          <h3>Assistant Secretary</h3>
+          <span class="org">Government of the People's Republic of Bangladesh · <a href="https://mopa.gov.bd" target="_blank" rel="noopener">mopa.gov.bd</a></span>
+          <p>Responsible for government policy implementation, maintaining law and order, and performing quasi-judicial and magisterial duties, alongside coordinating ICT infrastructure for the office.</p>
+          <div class="tags"><span class="tag">Public Policy</span><span class="tag">ICT Infrastructure</span><span class="tag">Governance</span></div>
+        </div>
+
+        <div class="log-entry">
+          <span class="ts mono">DEC 2019 — DEC 2022</span>
+          <h3>Assistant Engineer</h3>
+          <span class="org">Dhaka Electricity Supply PLC (DESCO) · <a href="https://desco.gov.bd" target="_blank" rel="noopener">desco.gov.bd</a></span>
+          <p>Built the end-user energy billing system and smart-prepaid meter applications for a network of over half a million prepaid meters, connected via TCP/IP and GSM.</p>
+          <div class="tags"><span class="tag">Java Spring Boot</span><span class="tag">Python</span><span class="tag">PHP</span><span class="tag">ActiveMQ</span></div>
+        </div>
+
+        <div class="log-entry">
+          <span class="ts mono">JAN 2018 — DEC 2019</span>
+          <h3>Senior Software Engineer</h3>
+          <span class="org">Woadec Ltd., Dhaka</span>
+          <p>Led the mobile and web development team for URAL EMS, a smartphone-based healthcare and ambulance dispatch service.</p>
+          <div class="tags"><span class="tag">Java Spring Boot</span><span class="tag">Flask</span><span class="tag">Laravel</span><span class="tag">Android</span><span class="tag">RabbitMQ</span><span class="tag">Docker</span><span class="tag">AWS</span></div>
+        </div>
+
+        <div class="log-entry">
+          <span class="ts mono">MAR 2017 — NOV 2017</span>
+          <h3>Software Engineer</h3>
+          <span class="org">Reve Systems, Dhaka · <a href="https://www.revechat.com" target="_blank" rel="noopener">revechat.com</a></span>
+          <p>Designed, developed, and deployed Reve Chat, a customer chat and bot solution, working across the real-time messaging stack.</p>
+          <div class="tags"><span class="tag">Spring Boot</span><span class="tag">WebRTC</span><span class="tag">WebSocket</span></div>
+        </div>
+
+        <div class="log-entry">
+          <span class="ts mono">APR 2016 — MAR 2017</span>
+          <h3>Junior System Administrator</h3>
+          <span class="org">Therap BD Ltd. (Therap Services LLC, CT, USA) · <a href="https://therapbd.com/" target="_blank" rel="noopener">therapbd.com</a></span>
+          <p>Worked within the DevOps team to deploy, scale, and monitor a SaaS platform running on Oracle middleware and Linux servers.</p>
+          <div class="tags"><span class="tag">Oracle WebLogic</span><span class="tag">Oracle Cloud Control</span><span class="tag">Linux</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Technical Specification</div>
+        <h2>Tools &amp; stack</h2>
+      </div>
+
+      <div class="spec-sheet reveal">
+        <div class="spec-row">
+          <div class="spec-label">Languages</div>
+          <div class="chip-row"><span class="chip">C / C++</span><span class="chip">Java</span><span class="chip">Python</span><span class="chip">PHP</span><span class="chip">Node.js</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">(M/D)L Areas</div>
+          <div class="chip-row"><span class="chip">LLMs</span><span class="chip">Computer Vision</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">(M/D)L Tools</div>
+          <div class="chip-row"><span class="chip">PyTorch</span><span class="chip">Hugging Face</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Cloud</div>
+          <div class="chip-row"><span class="chip">AWS</span><span class="chip">Google Cloud</span><span class="chip">Azure</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">DevOps</div>
+          <div class="chip-row"><span class="chip">Jenkins</span><span class="chip">Docker</span><span class="chip">Kubernetes</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Databases</div>
+          <div class="chip-row"><span class="chip">MySQL</span><span class="chip">Oracle</span><span class="chip">PostgreSQL</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">OS</div>
+          <div class="chip-row"><span class="chip">Debian / Ubuntu</span><span class="chip">Fedora / RHEL / CentOS</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Mobile</div>
+          <div class="chip-row"><span class="chip">Android</span><span class="chip">React Native</span></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Version Control</div>
+          <div class="chip-row"><span class="chip">Git</span></div>
+        </div>
+      </div>
+
+      <p class="coursework">Graduate-relevant coursework: <span>Data Structures</span>, <span>Algorithms</span>, <span>Artificial Intelligence</span>, <span>Object-Oriented Programming</span>, <span>Machine Learning &amp; Pattern Recognition</span>.</p>
+    </div>
+  </section>
+
+  <!-- EDUCATION + FREELANCE/COMMUNITY -->
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Education &amp; Beyond</div>
+        <h2>Foundations</h2>
+      </div>
+
+      <div class="two-col reveal">
+        <div class="card">
+          <h3>B.Sc. in Computer Science &amp; Engineering</h3>
+          <span class="meta">Bangladesh University of Engineering &amp; Technology (BUET) · Mar 2016</span>
+          <p>Dhaka, Bangladesh — GPA 3.31 / 4.0. BUET is Bangladesh's leading engineering university, with a highly selective CSE program.</p>
+        </div>
+
+        <div class="card">
+          <h3>Freelance &amp; community</h3>
+          <span class="meta">Selected work outside the day job</span>
+          <p style="margin-bottom:14px;">Led a full rewrite of the frontend and backend — payment, checkout, and search — for Eboighar, a local bookseller, using Google Cloud and Laravel.</p>
+          <ul class="community-list">
+            <li>Organized anti-plastic and anti-polyethylene awareness campaigns.</li>
+            <li>Led anti-drug campaigns and mobile courts prosecuting narcotics offenses.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap reveal">
+      <div class="eyebrow" style="justify-content:center;">Get in touch</div>
+      <h2>Looking for a graduate student who ships in production, not just in notebooks?</h2>
+      <p class="lead">I'm actively applying for MS/PhD positions in machine learning and cybersecurity, and open to funded research collaboration in the meantime. Let's talk.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:mujahid.buet@gmail.com">mujahid.buet@gmail.com</a>
+        <a class="btn btn-ghost" style="color:var(--paper-text); border-color:var(--rule);" href="https://wa.me/8801965309316" target="_blank" rel="noopener">WhatsApp: +880 1965 309316</a>
+        <a class="btn btn-ghost" style="color:var(--paper-text); border-color:var(--rule);" href="https://www.linkedin.com/in/1005011mmi/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Mohammad Mojahidul Islam · Dhaka, Bangladesh · Built for graduate research applications
+</footer>
+
+<script>
+  // scroll reveal
+  (function(){
+    var els = document.querySelectorAll('.reveal:not(.in)');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(e){ e.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+
+</body>
+</html>
